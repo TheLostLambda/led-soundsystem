@@ -1,0 +1,6 @@
+[[language]]
+name = "c"
+auto-format = true
+
+[language-server.clangd]
+args = ["--query-driver", "/usr/bin/arm-none-eabi-gcc"]
