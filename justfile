@@ -1,5 +1,5 @@
 watch:
-    watchexec -e c just run
+    watchexec -e c,h just run
 
 run: build
     picotool load -f build/*.uf2
@@ -16,3 +16,5 @@ clean:
 
 monitor:
     minicom -o -D /dev/ttyACM0
+
+reconfigure: clean configure

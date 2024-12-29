@@ -1,11 +1,20 @@
 #include <pico/stdio.h>
-#include <pico/time.h>
 #include <stdio.h>
+
+#include "capture.h"
+#include "dsp.h"
 
 int main() {
   stdio_init_all();
+
+  capture_init();
+  capture(true);
+
   while (true) {
-    printf("Hola, Mom!\n");
-    sleep_ms(1000);
+    if (buffer_ready()) {
+      vu_t volumes = vu_meter();
+      printf("Left: %-3d; Right: %-3d\n", volumes.left, volumes.right);
+      next_buffer();
+    }
   }
 }

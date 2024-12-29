@@ -21,10 +21,16 @@ pico_sdk_init()
 
 add_executable(led-soundsystem
   src/main.c
+  src/capture.c
+  src/dsp.c
 )
 
 # Pull in common dependencies
-target_link_libraries(led-soundsystem pico_stdlib)
+target_link_libraries(led-soundsystem
+  pico_stdlib
+  hardware_adc
+  hardware_dma
+)
 
 # Enable usb output, disable uart output
 pico_enable_stdio_usb(led-soundsystem 1)
