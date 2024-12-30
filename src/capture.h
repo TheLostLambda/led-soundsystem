@@ -17,8 +17,8 @@ constexpr uint CHANNELS = 1 << CHANNELS_BITS;
 constexpr uint SAMPLE_RATE = 44100; // Hz
 
 // Audio Buffer Settings
-constexpr uint8_t BUFFER_SIZE_BITS = 9;
-constexpr uint8_t BUFFER_COUNT_BITS = 3;
+constexpr uint8_t BUFFER_SIZE_BITS = 8;
+constexpr uint8_t BUFFER_COUNT_BITS = 4;
 constexpr uint8_t FULL_RING_SIZE_BITS =
     CHANNELS_BITS + BUFFER_COUNT_BITS + BUFFER_SIZE_BITS;
 constexpr size_t BUFFER_SIZE = 1 << BUFFER_SIZE_BITS;

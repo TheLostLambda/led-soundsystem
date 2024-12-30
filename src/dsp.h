@@ -5,7 +5,7 @@
 
 // Constant Parameters =========================================================
 
-constexpr uint8_t VU_BUFFERS = 2;
+constexpr uint8_t VU_BUFFERS = 4;
 
 // Public Types ================================================================
 

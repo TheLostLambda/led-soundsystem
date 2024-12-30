@@ -52,3 +52,5 @@ void led_hsvwc(float h, float s, float v, uint8_t w, uint8_t c) {
 void led_hsv(float h, float s, float v) {
   put_pixel(ws2805, hsvwc(h, s, v, 0, 0));
 }
+
+void led_off() { put_pixel(ws2805, 0); }

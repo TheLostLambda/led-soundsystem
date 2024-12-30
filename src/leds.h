@@ -18,3 +18,5 @@ void led_wc(uint8_t w, uint8_t c);
 
 void led_hsvwc(float h, float s, float v, uint8_t w, uint8_t c);
 void led_hsv(float h, float s, float v);
+
+void led_off();
