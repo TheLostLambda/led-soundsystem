@@ -1,6 +1,9 @@
 watch:
     watchexec -e c,h just run
 
+reboot:
+    picotool reboot -f
+
 run: build
     picotool load -f build/*.uf2
 

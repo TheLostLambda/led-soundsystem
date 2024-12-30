@@ -1,0 +1,22 @@
+; Only requires PIO version 0
+.pio_version 0
+.program ws2805
+
+; Enable side-set to drive a GPIO pin whilst minimizing clock cycles
+.side_set 1
+
+; Set the baud rate (in Hz)
+.define public RATE 800000
+
+; Predefine some timing constants (measured in PIO clock cycles)
+.define public T1 3
+.define public T2 3
+.define public T3 4
+
+bitloop:
+    out x, 1       side 0 [T3 - 1] ; Side-set still takes place when instruction stalls
+    jmp !x do_zero side 1 [T1 - 1] ; Branch on the bit we shifted out. Positive pulse
+do_one:
+    jmp bitloop    side 1 [T2 - 1] ; Continue driving high, for a long pulse
+do_zero:
+    jmp bitloop    side 0 [T2 - 1] ; Or drive low, for a short pulse

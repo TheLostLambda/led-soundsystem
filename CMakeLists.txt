@@ -13,7 +13,6 @@ set(PICO_BOARD pico2 CACHE STRING "Board type")
 # NOTE: This must happen before `project()`
 include(pico-sdk/pico_sdk_init.cmake)
 
-# FIXME: Can this go after `pico_sdk_init()`?
 project(led-soundsystem)
 
 # Initialize the Raspberry Pi Pico SDK
@@ -23,13 +22,19 @@ add_executable(led-soundsystem
   src/main.c
   src/capture.c
   src/dsp.c
+  src/leds.c
+  src/ws2805.c
 )
+
+# Compile the WS2805 PIO program into a C header file
+pico_generate_pio_header(led-soundsystem ${CMAKE_CURRENT_LIST_DIR}/src/ws2805.pio)
 
 # Pull in common dependencies
 target_link_libraries(led-soundsystem
   pico_stdlib
   hardware_adc
   hardware_dma
+  hardware_pio
 )
 
 # Enable usb output, disable uart output
