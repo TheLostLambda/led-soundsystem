@@ -17,7 +17,7 @@ function plotfft(signal)
     # Plotting
     ms = 1000t
     time_domain = plot(ms, signal, title = "Signal")
-    freq_domain = plot(freqs, abs.(F), title = "Spectrum", xlim=(0, +5000)) 
+    freq_domain = plot(freqs, abs.(F), title = "Spectrum", xlim=(0, +250)) 
     plot(time_domain, freq_domain, layout = 2)
 end
 
