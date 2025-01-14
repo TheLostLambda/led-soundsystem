@@ -15,7 +15,7 @@ configure:
     cd build; cmake ..
 
 clean:
-    rm -r build
+    rm -rf build
 
 monitor:
     minicom -o -D /dev/ttyACM0
